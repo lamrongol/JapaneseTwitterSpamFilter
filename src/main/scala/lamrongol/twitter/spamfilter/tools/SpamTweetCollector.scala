@@ -10,7 +10,7 @@ import twitter4j.Status
   * Created by admin on 2015/10/15.
   */
 class SpamTweetCollector(lang: String, filePath: String, preSpamFilter: SpamFilter, hamThr: Double = 0.0, spamThr: Double = 0.0, hamSuppressFactor: Int = 25) extends StreamProcessor {
-  val pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(filePath, true), "UTF-8"), true)
+  val pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(filePath, false), "UTF-8"), true)
   var count = 0
 
   override def processStatus(status: Status): Unit = {
@@ -34,7 +34,7 @@ object SpamTweetCollector {
   private val KAIGYO: String = System.getProperty("line.separator")
 
   def removeSpaceTabLinebreak(text: String): String = {
-    return text.replaceAll("[" + KAIGYO + "\\s\\t]+", " ")
+    return text.replaceAll( """(\r\n?|[\n\s\t])+""", " ")
   }
 
   def main(args: Array[String]) {
