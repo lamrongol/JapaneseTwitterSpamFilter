@@ -54,7 +54,7 @@ class JapaneseSpamFilter extends SpamFilter with Serializable {
     val dataSet = preparedData.map {
       case (label, words) =>
         LabeledPoint(
-          if ("ham" == label) 0 else 1,
+          if (label == "spam") 1 else 0,
           convertToVector(words)
         )
     }
