@@ -26,16 +26,16 @@ class SpamTweetCollector(lang: String, filePath: String, preSpamFilter: SpamFilt
       if (count % hamSuppressFactor != 0) return //spamでないものは多いため数を減らす
       label = "ham"
     }
-    pw.println(label + "\t" + status.getId + "\t" + status.getUser.getScreenName + "\t" + status.getSource + "\t" + SpamTweetCollector.removeSpaceTabLinebreak(status.getText))
+    pw.println(label + "\t" + SpamTweetCollector.statusToString(status))
   }
 }
 
 object SpamTweetCollector {
-  private val KAIGYO: String = System.getProperty("line.separator")
-
   def removeSpaceTabLinebreak(text: String): String = {
     return text.replaceAll( """(\r\n?|[\n\s\t])+""", " ")
   }
+
+  def statusToString(status: Status): String = status.getId + "\t" + status.getUser.getScreenName + "\t" + status.getSource + "\t" + removeSpaceTabLinebreak(status.getText)
 
   def main(args: Array[String]) {
     if (args.size < 4) {
