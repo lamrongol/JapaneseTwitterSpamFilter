@@ -1,6 +1,6 @@
 このプロジェクトをクローンしてbuild.sbtに以下のように記述するとインポートできます。
+
 	lazy val spamFilter = RootProject(file("C:\\workspaces\\TwitterAnalysis\\SpamFilter"))
-	
 	val main = Project(id = "YOUR_PROJECT", base =file(".")).dependsOn(spamFilter)
 
 クローンした場所は自分の環境に合わせ、YOUR_PROJECTの部分は自分のプロジェクトのsbtファイルに記載されているnameに変えてください。
