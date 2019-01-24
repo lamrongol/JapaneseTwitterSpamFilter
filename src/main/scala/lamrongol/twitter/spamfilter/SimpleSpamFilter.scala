@@ -17,6 +17,11 @@ object SimpleSpamFilter extends SpamFilter {
   val SPAM_DOMAIN_SET = loadResource("/spamSourceList.txt")
   val SPAM_HASHTAG_SET = loadResource("/spamHashtagList.txt")
 
+  //For test
+  def main(args: Array[String]) {
+    println("test")
+  }
+
 
   override def calcSpamScore(status: Status): Double = {
    if (SPAM_SOURCE_SET.contains(status.getSource)) return 1
