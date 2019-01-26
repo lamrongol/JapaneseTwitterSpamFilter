@@ -58,7 +58,7 @@ object SimpleSpamFilter extends SpamFilter {
     var set = scala.collection.mutable.Set.empty[String]
 
     val stream: InputStream = getClass.getResourceAsStream(fileName)
-    val lines = scala.io.Source.fromInputStream(stream).getLines
+    val lines = scala.io.Source.fromInputStream(stream, "UTF-8").getLines
     for (line <- lines if (!StringUtils.isBlank(line) && line.charAt(0) != '#')) {
       set += line
     }
