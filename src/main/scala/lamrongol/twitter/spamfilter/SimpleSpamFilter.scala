@@ -14,7 +14,7 @@ import scala.collection.mutable
   */
 object SimpleSpamFilter extends SpamFilter {
   val SPAM_SOURCE_SET = loadResource("/spamSourceList.txt")
-  val SPAM_DOMAIN_SET = loadResource("/spamSourceList.txt")
+  val SPAM_DOMAIN_SET = loadResource("/spamDomainList.txt")
   val SPAM_HASHTAG_SET = loadResource("/spamHashtagList.txt")
 
   //For test
