@@ -1,6 +1,11 @@
 <configuration>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">utEncoder -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <param name="threshold" value="info"/>
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%m%n" />
+        </layout>
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -22,7 +27,8 @@
         </rollingPolicy>
     </appender>
 
-    <root level="DEBUG">
+    <root>
+        <level value ="info" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
