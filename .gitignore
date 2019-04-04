@@ -48,3 +48,5 @@ crashlytics-build.properties
 fabric.properties
 target/
 project/build.properties
+replay_pid*.log
+hs_err_pid*.log
