@@ -50,7 +50,11 @@ object SimpleSpamFilter extends SpamFilter {
 
   def getDomainName(url: String): String = {
     val uri = new URI(url);
-    val domain = uri.getHost();
+    var domain = uri.getHost();
+    if(domain==null){
+      val i = url.indexOf("/");
+      domain = url.substring(0, i);
+    }
     return if (domain.startsWith("www.")) domain.substring(4) else domain;
   }
 
