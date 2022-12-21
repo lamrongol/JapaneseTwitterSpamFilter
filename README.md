@@ -1,3 +1,7 @@
+**This is now deprecated.**
+
+----------------------------------------------------------------------
+
 このプロジェクトをクローンしてbuild.sbtに以下のように記述するとインポートできます。
 
 	lazy val spamFilter = RootProject(file("C:\\workspaces\\TwitterAnalysis\\SpamFilter"))
